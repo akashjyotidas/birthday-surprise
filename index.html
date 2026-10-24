@@ -250,88 +250,66 @@ And maybe, somewhere in all these wishes, there is a small feeling I have not qu
 With warm wishes,
 Someone who thinks you're special. ♡`;
 
+
 const surprises = [
   {
     eyebrow: "Surprise 1 · A little beginning",
     symbol: "🌙",
     title: "One small question",
-    dialogue: "Majoni, before we begin… can you give me a little moment of your time?\n\nI made something just for you. No photos, no grand gifts — just a few words and a tiny journey.",
-    button: "Of course, continue ♡",
-    note: "A little curiosity is part of the magic."
+    dialogue: "Majoni, can you give me a little moment of your time?\n\nI made something just for you — a little journey with a few words from the heart.",
+    button: "Of course, continue ♡"
   },
   {
     eyebrow: "Surprise 2 · A quiet thought",
     symbol: "✨",
     title: "Some people are different",
-    dialogue: "Have you ever met someone who can make an ordinary moment feel a little more special?\n\nSometimes, they don't even realise the effect they have.",
-    button: "What do you mean? 💫",
-    note: "Some things are easier to feel than explain."
+    dialogue: "Have you ever met someone who makes an ordinary moment feel a little more special?\n\nSometimes, they don't even realise the effect they have.",
+    button: "Tell me more 💫"
   },
   {
     eyebrow: "Surprise 3 · A little reminder",
     symbol: "🌷",
     title: "This is for you",
-    dialogue: "I hope you remember that you don't have to be perfect to be appreciated.\n\nYou deserve kindness on your best days, and especially on the days when you don't feel your best.",
-    button: "Tell me another thing 💗",
-    note: "You deserve gentleness, too."
+    dialogue: "You don't have to be perfect to be appreciated.\n\nYou deserve kindness on your best days, and especially on the days when you don't feel your best.",
+    button: "One more thing 💗"
   },
   {
     eyebrow: "Surprise 4 · A wish",
     symbol: "🕯️",
     title: "If I could wish for you…",
-    dialogue: "I'd wish for the kind of happiness that stays after the exciting moments are over.\n\nPeace in your heart, confidence in your steps, and little reasons to smile on an ordinary day.",
-    button: "There's more? 🌙",
-    note: "Some wishes are meant to last beyond today."
+    dialogue: "I'd wish you peaceful days, a heart free from unnecessary worries, and little reasons to smile even on ordinary days.\n\nYou deserve happiness that stays.",
+    button: "Keep going 🌙"
   },
   {
-    eyebrow: "Surprise 5 · Halfway there",
-    symbol: "💫",
-    title: "A small pause",
-    dialogue: "Take a breath, make a tiny wish, and remember this:\n\nYour life doesn't have to look like anyone else's to be beautiful. Your pace is your own, and your story is still unfolding.",
-    button: "I'm ready for the next one ✨",
-    note: "You're halfway through the little journey."
-  },
-  {
-    eyebrow: "Surprise 6 · The things that matter",
-    symbol: "🦋",
-    title: "Never forget this",
-    dialogue: "I hope you find people who listen to understand, who celebrate your little wins, and who make you feel comfortable being exactly who you are.\n\nYou deserve connections that feel safe and sincere.",
-    button: "Keep going 💌",
-    note: "The best things are often the most genuine."
-  },
-  {
-    eyebrow: "Surprise 7 · A hidden thought",
+    eyebrow: "Surprise 5 · Something I admire",
     symbol: "🌹",
-    title: "Something I admire",
+    title: "A thought I wanted to share",
     dialogue: "There's something lovely about a person who leaves a little warmth behind in the moments they share.\n\nMaybe they don't notice it themselves, but someone else remembers those moments.",
-    button: "What happens next? ♡",
-    note: "Not every meaningful thing needs to be loud."
+    button: "What's next? ♡"
   },
   {
-    eyebrow: "Surprise 8 · Almost there",
-    symbol: "💖",
-    title: "A wish just for you",
-    dialogue: "May the year ahead bring you new places to discover, new reasons to laugh, courage for the hard bits, and people who remind you how much you matter.\n\nMay you feel proud of the person you're becoming.",
-    button: "One last surprise ✨",
-    note: "Two more little moments to go."
-  },
-  {
-    eyebrow: "Surprise 9 · Before the letter",
+    eyebrow: "Surprise 6 · One honest thing",
     symbol: "🤍",
-    title: "One honest thing",
-    dialogue: "Some feelings don't arrive with a big announcement. Sometimes they're just a quiet wish for someone's happiness, a smile when their name appears, or hoping their day goes well.\n\nThat's all I wanted to leave here, gently and without asking anything in return.",
-    button: "Open the final surprise 💌",
-    note: "Thank you for taking this little journey."
+    title: "A quiet feeling",
+    dialogue: "Sometimes a feeling is simply wishing someone well, smiling when their name appears, or hoping their day goes beautifully.\n\nNo expectations. Just a little thought, shared honestly.",
+    button: "Almost there 💌"
   },
   {
-    eyebrow: "Surprise 10 · Your special day",
+    eyebrow: "Surprise 7 · Your special day",
     symbol: "🎂",
-    title: "This moment is yours",
-    dialogue: "Happy Birthday, Majoni.\n\nMay today hold a little magic, may the coming year be kind to you, and may you always find reasons to believe that beautiful things are possible.",
-    button: "There's a letter for you 💗",
-    note: "Your birthday letter is waiting."
+    title: "Happy Birthday, Majoni",
+    dialogue: "May the year ahead bring you new memories, courage for difficult days, people who care, and dreams that slowly become real.\n\nI hope today gives you one more reason to smile.",
+    button: "Open your letter 💗"
+  },
+  {
+    eyebrow: "Surprise 8 · Made just for you",
+    symbol: "💖",
+    title: "A little moment to remember",
+    dialogue: "Before you open your letter, remember this:\n\nYou deserve beautiful things, genuine happiness, and people who appreciate you for who you are.",
+    button: "Read your birthday letter ♡"
   }
 ];
+
 
 const $ = id => document.getElementById(id);
 let current = 0;
