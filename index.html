@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Surprise For You ❤️</title>
+<style>
+:root {
+  --pink: #ff8eb7;
+  --cream: #fff0f5;
+  --glass: rgba(255,255,255,.08);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100svh;
+  overflow-x: hidden;
+  background: radial-gradient(ellipse at top, #35142f, #100b20 60%, #080711);
+  color: var(--cream);
+  font-family: Georgia, "Times New Roman", serif;
+  text-align: center;
+}
+#sky, #confetti {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+#sky { z-index: 0; }
+#confetti { z-index: 5; }
+main {
+  position: relative;
+  z-index: 1;
+  width: min(92%, 650px);
+  margin: auto;
+  padding: 10vh 0 60px;
+}
+.eyebrow {
+  font: 11px Arial, sans-serif;
+  letter-spacing: 5px;
+  color: var(--pink);
+  text-transform: uppercase;
+}
+h1 {
+  font-size: clamp(38px, 10vw, 70px);
+  line-height: 1.06;
+  font-weight: normal;
+  margin: 22px 0;
+  text-shadow: 0 0 30px #ff80b955;
+}
+h1 em { color: var(--pink); }
+p {
+  color: #e2c9dc;
+  font-size: 16px;
+  line-height: 1.9;
+}
+.card {
+  margin-top: 34px;
+  padding: 30px 22px;
+  border: 1px solid #ffb4d12d;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #ffffff0d, #ffffff03);
+  box-shadow: 0 20px 80px #0003, 0 0 40px #f36aa80a;
+  backdrop-filter: blur(12px);
+}
+.gift {
+  border: 0;
+  background: transparent;
+  font-size: 85px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 25px #ff77b777);
+  animation: float 2.5s ease-in-out infinite;
+}
+@keyframes float {
+  50% { transform: translateY(-12px) rotate(3deg); }
+}
+button.action {
+  display: inline-block;
+  border: 1px solid #ffc0d5aa;
+  background: linear-gradient(135deg, #f88cb6, #d64b91);
+  color: #260d21;
+  font-weight: bold;
+  border-radius: 40px;
+  padding: 14px 24px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 12px 5px 0;
+  transition: transform .2s, box-shadow .2s;
+}
+button.action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px #ff8eb755;
+}
+button:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 4px;
+}
+.hidden { display: none !important; }
+.fade {
+  animation: appear .8s ease both;
+}
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.letter {
+  white-space: pre-line;
+  text-align: left;
+  padding: 24px 20px;
+  border-left: 2px solid var(--pink);
+  background: #ffb3d009;
+  color: #f8dfe9;
+  font-size: 16px;
+  line-height: 2;
+}
+.heart {
+  position: fixed;
+  bottom: -40px;
+  pointer-events: none;
+  z-index: 2;
+  animation: rise linear forwards;
+}
+@keyframes rise {
+  to { transform: translateY(-115vh) rotate(35deg); opacity: 0; }
+}
+footer {
+  margin-top: 35px;
+  font: 11px Arial, sans-serif;
+  letter-spacing: 2px;
+  color: #a78ca8;
+}
+.small {
+  font-size: 12px;
+  color: #bda2b9;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+<body>
+<canvas id="sky" aria-hidden="true"></canvas>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<main>
+  <div class="eyebrow">A little something for you</div>
+
+  <section id="intro" class="fade">
+    <h1>Today is<br>all about <em>you.</em></h1>
+    <p>
+      Some people make the world feel softer<br>
+      just by being in it.<br>
+      Today, I want to celebrate one of them.
+    </p>
+
+    <div class="card">
+      <div class="small">YOUR LITTLE SURPRISE IS WAITING</div>
+      <button class="gift" id="gift" aria-label="Open birthday gift">🎁</button>
+      <p>Something special is hidden inside...</p>
+      <button class="action" id="open">Open your surprise ✨</button>
+    </div>
+  </section>
+
+  <section id="surprise" class="hidden">
+    <div class="eyebrow">A wish from the heart</div>
+    <h1>Happy Birthday,<br><em>beautiful soul.</em> ♡</h1>
+    <div class="card fade">
+      <div style="font-size:42px">🌙 ✨ 🌷</div>
+      <p>
+        If I could wish one beautiful thing for you,
+        it would be that life gives you a thousand
+        reasons to smile, even on the days that
+        feel a little difficult.
+      </p>
+      <p>
+        May your dreams find their way to you,
+        your heart feel safe, and your days
+        be filled with the kind of happiness
+        you truly deserve.
+      </p>
+      <button class="action" id="letterBtn">
+        There's one more thing 💌
+      </button>
+    </div>
+  </section>
+
+  <section id="letterSection" class="hidden">
+    <div class="eyebrow">Just between these words and you</div>
+    <h1>A little <em>letter.</em></h1>
+    <div class="card fade">
+      <div class="letter" id="letter"></div>
+      <button class="action" id="finalBtn">Make a wish ✨</button>
+    </div>
+  </section>
+
+  <section id="final" class="hidden">
+    <div style="font-size:75px">💖</div>
+    <h1>Keep <em>shining.</em></h1>
+    <p>
+      The world is a little more beautiful<br>
+      because you're in it.
+    </p>
+    <p>Happy Birthday, once again. ♡</p>
+    <button class="action" id="replay">Relive the magic ↺</button>
+  </section>
+
+  <footer>MADE WITH A LITTLE EXTRA LOVE ♡</footer>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+
+function show(id) {
+  ["intro", "surprise", "letterSection", "final"].forEach(name => {
+    $(name).classList.add("hidden");
+  });
+  $(id).classList.remove("hidden");
+  $(id).classList.remove("fade");
+  void $(id).offsetWidth;
+  $(id).classList.add("fade");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function heartBurst(count = 24) {
+  for (let i = 0; i < count; i++) {
+    setTimeout(() => {
+      const heart = document.createElement("span");
+      heart.className = "heart";
+      heart.textContent = ["♡", "♥", "✦", "💕"][
+        Math.floor(Math.random() * 4)
+      ];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (12 + Math.random() * 22) + "px";
+      heart.style.color = ["#ff8eb7", "#ffd4e4", "#dca5ff"][
+        Math.floor(Math.random() * 3)
+      ];
+      heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+      document.body.appendChild(heart);
+      heart.addEventListener("animationend", () => heart.remove());
+    }, i * 90);
+  }
+}
+
+$("open").addEventListener("click", () => {
+  show("surprise");
+  heartBurst(32);
+  burstConfetti();
+});
+$("gift").addEventListener("click", () => $("open").click());
+
+const letterText =
+`Dear you,
+
+I may not always find the perfect words,
+but today I hope you feel just how special
+you are.
+
+I hope this new chapter brings you peace
+when life gets loud, courage when things
+get uncertain, and little moments of joy
+when you least expect them.
+
+Never forget that you deserve kindness,
+beautiful memories, and a happiness that
+feels genuine.
+
+Keep being the person you are.
+That, in itself, is something wonderful.
+
+With warmest wishes,
+Someone wishing you the very best ♡`;
+
+$("letterBtn").addEventListener("click", () => {
+  show("letterSection");
+  $("letter").textContent = letterText;
+  heartBurst(15);
+});
+$("finalBtn").addEventListener("click", () => {
+  show("final");
+  heartBurst(45);
+  burstConfetti();
+});
+$("replay").addEventListener("click", () => show("intro"));
+
+// Stars in the background
+const canvas = $("sky");
+const ctx = canvas.getContext("2d");
+let stars = [];
+function resize() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  canvas.width = innerWidth * dpr;
+  canvas.height = innerHeight * dpr;
+  canvas.style.width = innerWidth + "px";
+  canvas.style.height = innerHeight + "px";
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  stars = Array.from({ length: Math.min(120, Math.floor(innerWidth / 4)) },
+    () => ({
+      x: Math.random() * innerWidth,
+      y: Math.random() * innerHeight,
+      r: Math.random() * 1.5 + .3,
+      a: Math.random()
+    })
+  );
+}
+function drawStars() {
+  ctx.clearRect(0, 0, innerWidth, innerHeight);
+  stars.forEach(s => {
+    s.a += (Math.random() - .5) * .08;
+    s.a = Math.max(.15, Math.min(1, s.a));
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,220,240,${s.a})`;
+    ctx.fill();
+  });
+  requestAnimationFrame(drawStars);
+}
+window.addEventListener("resize", resize);
+resize();
+drawStars();
+
+// Lightweight celebratory confetti
+const cc = $("confetti");
+const cctx = cc.getContext("2d");
+let bits = [];
+function burstConfetti() {
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  cc.width = innerWidth * dpr;
+  cc.height = innerHeight * dpr;
+  cc.style.width = innerWidth + "px";
+  cc.style.height = innerHeight + "px";
+  cctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  bits = Array.from({ length: 130 }, () => ({
+    x: innerWidth / 2 + (Math.random() - .5) * 100,
+    y: innerHeight * .35,
+    vx: (Math.random() - .5) * 9,
+    vy: -Math.random() * 8 - 2,
+    size: Math.random() * 5 + 2,
+    life: 100 + Math.random() * 50,
+    color: ["#ff8eb7", "#ffd166", "#dca5ff", "#fff0f5"][
+      Math.floor(Math.random() * 4)
+    ]
+  }));
+}
+function drawConfetti() {
+  cctx.clearRect(0, 0, innerWidth, innerHeight);
+  bits = bits.filter(b => b.life > 0);
+  bits.forEach(b => {
+    b.x += b.vx;
+    b.y += b.vy;
+    b.vy += .13;
+    b.vx *= .99;
+    b.life--;
+    cctx.globalAlpha = Math.min(1, b.life / 25);
+    cctx.fillStyle = b.color;
+    cctx.fillRect(b.x, b.y, b.size, b.size * 1.5);
+  });
+  cctx.globalAlpha = 1;
+  requestAnimationFrame(drawConfetti);
+}
+drawConfetti();
+</script>
+</body>
+</html>
