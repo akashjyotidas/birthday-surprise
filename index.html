@@ -1,369 +1,461 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Special Birthday Surprise for Majoni ❤️</title>
+<meta name="theme-color" content="#160d20">
+<title>A Little Mystery for Majoni ❤️</title>
 <style>
 :root {
-  --pink: #ff8eb7;
-  --cream: #fff0f5;
-  --glass: rgba(255,255,255,.08);
+  --bg: #100b19;
+  --panel: rgba(255,255,255,.065);
+  --pink: #ff9fc7;
+  --pink2: #f46da9;
+  --cream: #fff1f6;
+  --muted: #d7bdce;
 }
 * { box-sizing: border-box; }
+html { min-height: 100%; background: var(--bg); }
 body {
-  margin: 0;
-  min-height: 100svh;
-  overflow-x: hidden;
-  background: radial-gradient(ellipse at top, #35142f, #100b20 60%, #080711);
+  margin: 0; min-height: 100svh; overflow-x: hidden;
   color: var(--cream);
   font-family: Georgia, "Times New Roman", serif;
   text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, #522344 0%, transparent 48%),
+    radial-gradient(ellipse at 10% 80%, #25183d 0%, transparent 40%),
+    linear-gradient(160deg, #160d20, #090812 75%);
 }
-#sky, #confetti {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+button { font: inherit; }
+#stars, #confetti {
+  position: fixed; inset: 0; width: 100%; height: 100%;
   pointer-events: none;
 }
-#sky { z-index: 0; }
+#stars { z-index: 0; }
 #confetti { z-index: 5; }
 main {
-  position: relative;
-  z-index: 1;
-  width: min(92%, 650px);
-  margin: auto;
-  padding: 10vh 0 60px;
+  position: relative; z-index: 1;
+  width: min(92%, 620px); margin: 0 auto;
+  padding: max(7vh, 38px) 0 42px;
 }
 .eyebrow {
-  font: 11px Arial, sans-serif;
-  letter-spacing: 5px;
-  color: var(--pink);
-  text-transform: uppercase;
+  font: 10px/1.6 Arial, sans-serif; letter-spacing: 4px;
+  color: var(--pink); text-transform: uppercase;
 }
 h1 {
-  font-size: clamp(38px, 10vw, 70px);
-  line-height: 1.06;
-  font-weight: normal;
-  margin: 22px 0;
-  text-shadow: 0 0 30px #ff80b955;
+  font-weight: normal; font-size: clamp(36px, 9vw, 66px);
+  line-height: 1.08; margin: 20px 0 16px;
+  text-shadow: 0 0 32px #ff9fc72b;
 }
-h1 em { color: var(--pink); }
-p {
-  color: #e2c9dc;
-  font-size: 16px;
-  line-height: 1.9;
-}
-.card {
-  margin-top: 34px;
-  padding: 30px 22px;
-  border: 1px solid #ffb4d12d;
-  border-radius: 24px;
-  background: linear-gradient(145deg, #ffffff0d, #ffffff03);
-  box-shadow: 0 20px 80px #0003, 0 0 40px #f36aa80a;
-  backdrop-filter: blur(12px);
-}
-.gift {
-  border: 0;
-  background: transparent;
-  font-size: 85px;
-  cursor: pointer;
-  filter: drop-shadow(0 0 25px #ff77b777);
-  animation: float 2.5s ease-in-out infinite;
-}
-@keyframes float {
-  50% { transform: translateY(-12px) rotate(3deg); }
-}
-button.action {
-  display: inline-block;
-  border: 1px solid #ffc0d5aa;
-  background: linear-gradient(135deg, #f88cb6, #d64b91);
-  color: #260d21;
-  font-weight: bold;
-  border-radius: 40px;
-  padding: 14px 24px;
-  font-size: 14px;
-  cursor: pointer;
-  margin: 12px 5px 0;
-  transition: transform .2s, box-shadow .2s;
-}
-button.action:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 25px #ff8eb755;
-}
-button:focus-visible {
-  outline: 2px solid white;
-  outline-offset: 4px;
-}
-.hidden { display: none !important; }
-.fade {
-  animation: appear .8s ease both;
-}
-@keyframes appear {
-  from { opacity: 0; transform: translateY(15px); }
+h1 em { color: var(--pink); font-style: normal; }
+.intro, .stage { animation: rise-in .7s ease both; }
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
 }
+.subhead { color: var(--muted); font-size: 15px; line-height: 1.9; }
+.panel {
+  margin: 26px 0 0; padding: clamp(22px, 6vw, 34px) clamp(17px, 5vw, 30px);
+  border: 1px solid #ffb8d52e; border-radius: 25px;
+  background: linear-gradient(145deg, #ffffff0c, #ffffff03);
+  box-shadow: 0 22px 70px #0004, inset 0 1px #ffffff09;
+  backdrop-filter: blur(10px);
+}
+.symbol {
+  font-size: clamp(48px, 14vw, 78px); line-height: 1.3;
+  margin: 4px 0 14px; filter: drop-shadow(0 0 22px #ff8eb755);
+}
+.dialogue {
+  white-space: pre-line; color: #f7e4ed;
+  font-size: clamp(17px, 4.6vw, 20px); line-height: 1.85;
+  margin: 12px 0 22px;
+}
+.action {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; max-width: 100%;
+  border: 1px solid #ffc4dcaa; border-radius: 999px;
+  padding: 13px 23px; margin-top: 8px;
+  color: #2b1024; background: linear-gradient(135deg, #ffc0d9, #f274ad);
+  font: bold 14px/1.4 Arial, sans-serif; cursor: pointer;
+  box-shadow: 0 8px 30px #f46da926;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.action:hover { transform: translateY(-2px); box-shadow: 0 10px 35px #f46da94a; }
+.action:active { transform: scale(.98); }
+.action:focus-visible { outline: 2px solid white; outline-offset: 4px; }
+.action.secondary {
+  color: var(--cream); background: #ffffff0a; border-color: #ffb8d555;
+  box-shadow: none;
+}
+.progress-wrap { margin: 25px auto 0; max-width: 340px; }
+.progress-label {
+  display: flex; justify-content: space-between; gap: 10px;
+  font: 10px Arial, sans-serif; letter-spacing: 1.5px;
+  color: #caaabd; text-transform: uppercase; margin-bottom: 10px;
+}
+.track { height: 4px; background: #ffffff14; border-radius: 10px; overflow: hidden; }
+.bar { height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, #d85d9d, #ffd2e4); transition: width .5s ease; }
+.small-note { color: #a990a5; font: 11px/1.7 Arial, sans-serif; margin-top: 20px; }
 .letter {
-  white-space: pre-line;
-  text-align: left;
-  padding: 24px 20px;
-  border-left: 2px solid var(--pink);
-  background: #ffb3d009;
-  color: #f8dfe9;
-  font-size: 16px;
-  line-height: 2;
+  white-space: pre-line; text-align: left; color: #f8e3ec;
+  font-size: 16px; line-height: 2; padding: 19px 17px;
+  border-left: 2px solid var(--pink); background: #ffb3d008;
+  border-radius: 0 12px 12px 0;
 }
+.signature { color: var(--pink); margin-top: 18px; font-style: italic; }
+footer { margin-top: 34px; color: #92758f; font: 10px Arial,sans-serif; letter-spacing: 2px; }
+.hidden { display: none !important; }
 .heart {
-  position: fixed;
-  bottom: -40px;
-  pointer-events: none;
-  z-index: 2;
-  animation: rise linear forwards;
+  position: fixed; bottom: -35px; z-index: 2; pointer-events: none;
+  animation: float-up linear forwards; will-change: transform, opacity;
 }
-@keyframes rise {
-  to { transform: translateY(-115vh) rotate(35deg); opacity: 0; }
-}
-footer {
-  margin-top: 35px;
-  font: 11px Arial, sans-serif;
-  letter-spacing: 2px;
-  color: #a78ca8;
-}
-.small {
-  font-size: 12px;
-  color: #bda2b9;
+@keyframes float-up {
+  0% { transform: translateY(0) rotate(0); opacity: 0; }
+  10% { opacity: .9; }
+  100% { transform: translateY(-115vh) rotate(35deg); opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-  }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
 </style>
 </head>
 <body>
-<canvas id="sky" aria-hidden="true"></canvas>
+<canvas id="stars" aria-hidden="true"></canvas>
 <canvas id="confetti" aria-hidden="true"></canvas>
 
 <main>
-  <div class="eyebrow">A little something for you</div>
+  <div class="eyebrow">A little mystery, made just for you</div>
 
-  <section id="intro" class="fade">
-    <h1>Today is<br>all about <em>you Majoni.</em> ❤️</h1>
-    <p>
-      Some people make the world feel softer<br>
-      just by being in it.<br>
-      Today, I want to celebrate one of them.
-    </p>
+  <section id="intro" class="intro">
+    <h1>For you,<br><em>Majoni.</em> ♡</h1>
+    <p class="subhead">There are ten little moments waiting here.<br>
+      Take your time. Open them one by one.</p>
+    <div class="panel">
+      <div class="symbol" aria-hidden="true">🎁</div>
+      <p class="dialogue">Not everything beautiful needs a photograph.
+Sometimes, a few honest words are enough.</p>
+      <button class="action" id="startBtn">Unlock the first surprise <span aria-hidden="true">♡</span></button>
+    </div>
+    <p class="small-note">Best experienced slowly, one little surprise at a time.</p>
+  </section>
 
-    <div class="card">
-      <div class="small">YOUR LITTLE SURPRISE IS WAITING</div>
-      <button class="gift" id="gift" aria-label="Open birthday gift">🎁</button>
-      <p>Something special is hidden inside...</p>
-      <button class="action" id="open">Open your surprise ✨</button>
+  <section id="journey" class="stage hidden" aria-live="polite">
+    <div class="progress-wrap">
+      <div class="progress-label"><span id="progressText">Surprise 1 of 10</span><span id="progressPercent">10%</span></div>
+      <div class="track" role="progressbar" aria-label="Birthday surprise progress" aria-valuemin="0" aria-valuemax="10" aria-valuenow="1" id="progressTrack"><div class="bar" id="progressBar"></div></div>
+    </div>
+    <div class="panel">
+      <div class="eyebrow" id="stageEyebrow">A little beginning</div>
+      <div class="symbol" id="stageSymbol" aria-hidden="true">🌙</div>
+      <h1 id="stageTitle">One small question</h1>
+      <p class="dialogue" id="stageDialogue"></p>
+      <button class="action" id="nextBtn">Tell me more ✨</button>
+    </div>
+    <p class="small-note" id="stageNote">One moment at a time. No rush.</p>
+  </section>
+
+  <section id="ending" class="stage hidden" aria-live="polite">
+    <div class="eyebrow">The last little surprise</div>
+    <h1>Happy Birthday,<br><em>Majoni.</em> ♡</h1>
+    <div class="panel">
+      <div class="symbol" aria-hidden="true">💌</div>
+      <p class="dialogue">You made it to the end… but this is the part I hope you remember.</p>
+      <button class="action" id="openLetterBtn">Open your letter 💗</button>
     </div>
   </section>
 
-  <section id="surprise" class="hidden">
-    <div class="eyebrow">A wish from the heart</div>
-    <h1>Happy Birthday,<br><em>beautiful soul.</em> ♡</h1>
-    <div class="card fade">
-      <div style="font-size:42px">🌙 ✨ 🌷</div>
-      <p>
-        If I could wish one beautiful thing for you,
-        it would be that life gives you a thousand
-        reasons to smile, even on the days that
-        feel a little difficult.
-      </p>
-      <p>
-        May your dreams find their way to you,
-        your heart feel safe, and your days
-        be filled with the kind of happiness
-        you truly deserve.
-      </p>
-      <button class="action" id="letterBtn">
-        There's one more thing 💌
-      </button>
-    </div>
-  </section>
-
-  <section id="letterSection" class="hidden">
-    <div class="eyebrow">Just between these words and you</div>
+  <section id="letterSection" class="stage hidden" aria-live="polite">
+    <div class="eyebrow">Words from the heart</div>
     <h1>A little <em>letter.</em></h1>
-    <div class="card fade">
-      <div class="letter" id="letter"></div>
-      <button class="action" id="finalBtn">Make a wish ✨</button>
+    <div class="panel">
+      <div class="letter" id="letterText"></div>
+      <p class="signature">With warmest wishes, always. ♡</p>
+      <button class="action" id="finalBtn">Make a birthday wish ✨</button>
     </div>
   </section>
 
-  <section id="final" class="hidden">
-    <div style="font-size:75px">💖</div>
-    <h1>Keep <em>shining.</em></h1>
-    <p>
-      The world is a little more beautiful<br>
-      because you're in it.
-    </p>
-    <p>Happy Birthday, once again. ♡</p>
-    <button class="action" id="replay">Relive the magic ↺</button>
+  <section id="final" class="stage hidden" aria-live="polite">
+    <div class="symbol" aria-hidden="true">💖</div>
+    <div class="eyebrow">And one last thing</div>
+    <h1>Keep <em>shining,</em><br>Majoni.</h1>
+    <div class="panel">
+      <p class="dialogue">I hope life is gentle with you, your dreams find their way to you, and you always have reasons to smile.</p>
+      <p class="dialogue">And quietly, I hope I get to be one of those reasons someday. ♡</p>
+      <p class="subhead">Happy Birthday. You deserve beautiful things.</p>
+      <button class="action secondary" id="replayBtn">Start the journey again ↺</button>
+    </div>
   </section>
 
-  <footer>MADE WITH A LITTLE EXTRA LOVE ♡</footer>
+  <footer>MADE WITH CARE, JUST FOR MAJONI ♡</footer>
 </main>
 
 <script>
-const $ = id => document.getElementById(id);
+"use strict";
 
-function show(id) {
-  ["intro", "surprise", "letterSection", "final"].forEach(name => {
-    $(name).classList.add("hidden");
+// CUSTOMIZE THIS LETTER: change only the words inside the backticks.
+const birthdayLetter = `Dear Majoni, ❤️
+
+Happy Birthday to someone truly special.
+
+I hope this new chapter brings you peaceful days, unexpected happiness, beautiful memories, and all the little things your heart wishes for.
+
+You deserve kindness that feels genuine, people who care, and moments that make you smile for no reason.
+
+I may not always know the perfect words to say, but I hope today reminds you how much goodness you deserve.
+
+Keep being yourself, keep smiling, and never stop shining in your own way.
+
+And maybe, somewhere in all these wishes, there is a small feeling I have not quite found the courage to say out loud. For now, I will simply wish you the happiest birthday.
+
+With warm wishes,
+Someone who thinks you're special. ♡`;
+
+const surprises = [
+  {
+    eyebrow: "Surprise 1 · A little beginning",
+    symbol: "🌙",
+    title: "One small question",
+    dialogue: "Majoni, before we begin… can you give me a little moment of your time?\n\nI made something just for you. No photos, no grand gifts — just a few words and a tiny journey.",
+    button: "Of course, continue ♡",
+    note: "A little curiosity is part of the magic."
+  },
+  {
+    eyebrow: "Surprise 2 · A quiet thought",
+    symbol: "✨",
+    title: "Some people are different",
+    dialogue: "Have you ever met someone who can make an ordinary moment feel a little more special?\n\nSometimes, they don't even realise the effect they have.",
+    button: "What do you mean? 💫",
+    note: "Some things are easier to feel than explain."
+  },
+  {
+    eyebrow: "Surprise 3 · A little reminder",
+    symbol: "🌷",
+    title: "This is for you",
+    dialogue: "I hope you remember that you don't have to be perfect to be appreciated.\n\nYou deserve kindness on your best days, and especially on the days when you don't feel your best.",
+    button: "Tell me another thing 💗",
+    note: "You deserve gentleness, too."
+  },
+  {
+    eyebrow: "Surprise 4 · A wish",
+    symbol: "🕯️",
+    title: "If I could wish for you…",
+    dialogue: "I'd wish for the kind of happiness that stays after the exciting moments are over.\n\nPeace in your heart, confidence in your steps, and little reasons to smile on an ordinary day.",
+    button: "There's more? 🌙",
+    note: "Some wishes are meant to last beyond today."
+  },
+  {
+    eyebrow: "Surprise 5 · Halfway there",
+    symbol: "💫",
+    title: "A small pause",
+    dialogue: "Take a breath, make a tiny wish, and remember this:\n\nYour life doesn't have to look like anyone else's to be beautiful. Your pace is your own, and your story is still unfolding.",
+    button: "I'm ready for the next one ✨",
+    note: "You're halfway through the little journey."
+  },
+  {
+    eyebrow: "Surprise 6 · The things that matter",
+    symbol: "🦋",
+    title: "Never forget this",
+    dialogue: "I hope you find people who listen to understand, who celebrate your little wins, and who make you feel comfortable being exactly who you are.\n\nYou deserve connections that feel safe and sincere.",
+    button: "Keep going 💌",
+    note: "The best things are often the most genuine."
+  },
+  {
+    eyebrow: "Surprise 7 · A hidden thought",
+    symbol: "🌹",
+    title: "Something I admire",
+    dialogue: "There's something lovely about a person who leaves a little warmth behind in the moments they share.\n\nMaybe they don't notice it themselves, but someone else remembers those moments.",
+    button: "What happens next? ♡",
+    note: "Not every meaningful thing needs to be loud."
+  },
+  {
+    eyebrow: "Surprise 8 · Almost there",
+    symbol: "💖",
+    title: "A wish just for you",
+    dialogue: "May the year ahead bring you new places to discover, new reasons to laugh, courage for the hard bits, and people who remind you how much you matter.\n\nMay you feel proud of the person you're becoming.",
+    button: "One last surprise ✨",
+    note: "Two more little moments to go."
+  },
+  {
+    eyebrow: "Surprise 9 · Before the letter",
+    symbol: "🤍",
+    title: "One honest thing",
+    dialogue: "Some feelings don't arrive with a big announcement. Sometimes they're just a quiet wish for someone's happiness, a smile when their name appears, or hoping their day goes well.\n\nThat's all I wanted to leave here, gently and without asking anything in return.",
+    button: "Open the final surprise 💌",
+    note: "Thank you for taking this little journey."
+  },
+  {
+    eyebrow: "Surprise 10 · Your special day",
+    symbol: "🎂",
+    title: "This moment is yours",
+    dialogue: "Happy Birthday, Majoni.\n\nMay today hold a little magic, may the coming year be kind to you, and may you always find reasons to believe that beautiful things are possible.",
+    button: "There's a letter for you 💗",
+    note: "Your birthday letter is waiting."
+  }
+];
+
+const $ = id => document.getElementById(id);
+let current = 0;
+
+function showSection(id) {
+  ["intro", "journey", "ending", "letterSection", "final"].forEach(sectionId => {
+    $(sectionId).classList.add("hidden");
   });
-  $(id).classList.remove("hidden");
-  $(id).classList.remove("fade");
-  void $(id).offsetWidth;
-  $(id).classList.add("fade");
+  const section = $(id);
+  section.classList.remove("hidden");
+  section.classList.remove("stage");
+  void section.offsetWidth;
+  section.classList.add("stage");
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function heartBurst(count = 24) {
+function updateProgress(index) {
+  const completed = index + 1;
+  $("progressText").textContent = `Surprise ${completed} of ${surprises.length}`;
+  $("progressPercent").textContent = `${Math.round(completed / surprises.length * 100)}%`;
+  $("progressBar").style.width = `${completed / surprises.length * 100}%`;
+  $("progressTrack").setAttribute("aria-valuenow", String(completed));
+}
+
+function renderSurprise(index) {
+  current = index;
+  const item = surprises[index];
+  $("stageEyebrow").textContent = item.eyebrow;
+  $("stageSymbol").textContent = item.symbol;
+  $("stageTitle").textContent = item.title;
+  $("stageDialogue").textContent = item.dialogue;
+  $("nextBtn").textContent = item.button;
+  $("stageNote").textContent = item.note;
+  updateProgress(index);
+  showSection("journey");
+}
+
+function makeHearts(count = 18) {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) return;
+  const glyphs = ["♡", "♥", "✦", "✧"];
   for (let i = 0; i < count; i++) {
     setTimeout(() => {
       const heart = document.createElement("span");
       heart.className = "heart";
-      heart.textContent = ["♡", "♥", "✦", "💕"][
-        Math.floor(Math.random() * 4)
-      ];
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = (12 + Math.random() * 22) + "px";
-      heart.style.color = ["#ff8eb7", "#ffd4e4", "#dca5ff"][
-        Math.floor(Math.random() * 3)
-      ];
-      heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+      heart.setAttribute("aria-hidden", "true");
+      heart.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.fontSize = `${12 + Math.random() * 20}px`;
+      heart.style.color = ["#ff9fc7", "#ffd8e8", "#dcb6ff"][Math.floor(Math.random() * 3)];
+      heart.style.animationDuration = `${4 + Math.random() * 3}s`;
       document.body.appendChild(heart);
-      heart.addEventListener("animationend", () => heart.remove());
-    }, i * 90);
+      heart.addEventListener("animationend", () => heart.remove(), { once: true });
+    }, i * 65);
   }
 }
 
-$("open").addEventListener("click", () => {
-  show("surprise");
-  heartBurst(32);
-  burstConfetti();
+$("startBtn").addEventListener("click", () => {
+  renderSurprise(0);
+  makeHearts(22);
 });
-$("gift").addEventListener("click", () => $("open").click());
-
-const letterText =
-`Dear you,
-
-I may not always find the perfect words,
-but today I hope you feel just how special
-you are.
-
-I hope this new chapter brings you peace
-when life gets loud, courage when things
-get uncertain, and little moments of joy
-when you least expect them.
-
-Never forget that you deserve kindness,
-beautiful memories, and a happiness that
-feels genuine.
-
-Keep being the person you are.
-That, in itself, is something wonderful.
-
-With warmest wishes,
-Someone wishing you the very best ♡`;
-
-$("letterBtn").addEventListener("click", () => {
-  show("letterSection");
-  $("letter").textContent = letterText;
-  heartBurst(15);
+$("nextBtn").addEventListener("click", () => {
+  if (current < surprises.length - 1) {
+    renderSurprise(current + 1);
+    makeHearts(current === 8 ? 35 : 12);
+  } else {
+    showSection("ending");
+    makeHearts(28);
+    burstConfetti();
+  }
+});
+$("openLetterBtn").addEventListener("click", () => {
+  $("letterText").textContent = birthdayLetter;
+  showSection("letterSection");
+  makeHearts(18);
 });
 $("finalBtn").addEventListener("click", () => {
-  show("final");
-  heartBurst(45);
+  showSection("final");
+  makeHearts(35);
   burstConfetti();
 });
-$("replay").addEventListener("click", () => show("intro"));
+$("replayBtn").addEventListener("click", () => {
+  current = 0;
+  showSection("intro");
+});
 
-// Stars in the background
-const canvas = $("sky");
-const ctx = canvas.getContext("2d");
+// Star field
+const starCanvas = $("stars");
+const starCtx = starCanvas.getContext("2d");
 let stars = [];
-function resize() {
+function resizeStars() {
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
-  canvas.width = innerWidth * dpr;
-  canvas.height = innerHeight * dpr;
-  canvas.style.width = innerWidth + "px";
-  canvas.style.height = innerHeight + "px";
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  stars = Array.from({ length: Math.min(120, Math.floor(innerWidth / 4)) },
-    () => ({
-      x: Math.random() * innerWidth,
-      y: Math.random() * innerHeight,
-      r: Math.random() * 1.5 + .3,
-      a: Math.random()
-    })
-  );
+  starCanvas.width = Math.floor(innerWidth * dpr);
+  starCanvas.height = Math.floor(innerHeight * dpr);
+  starCanvas.style.width = `${innerWidth}px`;
+  starCanvas.style.height = `${innerHeight}px`;
+  starCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  stars = Array.from({ length: Math.min(125, Math.floor(innerWidth / 3)) }, () => ({
+    x: Math.random() * innerWidth,
+    y: Math.random() * innerHeight,
+    r: Math.random() * 1.4 + .25,
+    alpha: Math.random() * .8 + .2,
+    phase: Math.random() * Math.PI * 2
+  }));
 }
-function drawStars() {
-  ctx.clearRect(0, 0, innerWidth, innerHeight);
-  stars.forEach(s => {
-    s.a += (Math.random() - .5) * .08;
-    s.a = Math.max(.15, Math.min(1, s.a));
-    ctx.beginPath();
-    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255,220,240,${s.a})`;
-    ctx.fill();
-  });
+function drawStars(time) {
+  starCtx.clearRect(0, 0, innerWidth, innerHeight);
+  for (const s of stars) {
+    const alpha = .25 + (Math.sin(time * .001 + s.phase) + 1) * .32;
+    starCtx.beginPath();
+    starCtx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    starCtx.fillStyle = `rgba(255,225,241,${alpha})`;
+    starCtx.fill();
+  }
   requestAnimationFrame(drawStars);
 }
-window.addEventListener("resize", resize);
-resize();
-drawStars();
+window.addEventListener("resize", resizeStars);
+resizeStars();
+requestAnimationFrame(drawStars);
 
-// Lightweight celebratory confetti
-const cc = $("confetti");
-const cctx = cc.getContext("2d");
-let bits = [];
+// Confetti burst, triggered only by the final surprise.
+const confettiCanvas = $("confetti");
+const confettiCtx = confettiCanvas.getContext("2d");
+let confetti = [];
+let confettiFrame = 0;
 function burstConfetti() {
-  const dpr = Math.min(devicePixelRatio || 1, 2);
-  cc.width = innerWidth * dpr;
-  cc.height = innerHeight * dpr;
-  cc.style.width = innerWidth + "px";
-  cc.style.height = innerHeight + "px";
-  cctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  bits = Array.from({ length: 130 }, () => ({
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  confettiCanvas.width = Math.floor(innerWidth * dpr);
+  confettiCanvas.height = Math.floor(innerHeight * dpr);
+  confettiCanvas.style.width = `${innerWidth}px`;
+  confettiCanvas.style.height = `${innerHeight}px`;
+  confettiCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  confetti = Array.from({ length: 150 }, () => ({
     x: innerWidth / 2 + (Math.random() - .5) * 100,
-    y: innerHeight * .35,
+    y: innerHeight * .32,
     vx: (Math.random() - .5) * 9,
     vy: -Math.random() * 8 - 2,
     size: Math.random() * 5 + 2,
-    life: 100 + Math.random() * 50,
-    color: ["#ff8eb7", "#ffd166", "#dca5ff", "#fff0f5"][
-      Math.floor(Math.random() * 4)
-    ]
+    life: 100 + Math.random() * 40,
+    color: ["#ff9fc7", "#ffd166", "#dcb6ff", "#fff1f6"][Math.floor(Math.random() * 4)]
   }));
+  if (!confettiFrame) drawConfetti();
 }
 function drawConfetti() {
-  cctx.clearRect(0, 0, innerWidth, innerHeight);
-  bits = bits.filter(b => b.life > 0);
-  bits.forEach(b => {
-    b.x += b.vx;
-    b.y += b.vy;
-    b.vy += .13;
-    b.vx *= .99;
-    b.life--;
-    cctx.globalAlpha = Math.min(1, b.life / 25);
-    cctx.fillStyle = b.color;
-    cctx.fillRect(b.x, b.y, b.size, b.size * 1.5);
-  });
-  cctx.globalAlpha = 1;
-  requestAnimationFrame(drawConfetti);
+  confettiFrame = requestAnimationFrame(drawConfetti);
+  confettiCtx.clearRect(0, 0, innerWidth, innerHeight);
+  confetti = confetti.filter(piece => piece.life > 0);
+  for (const piece of confetti) {
+    piece.x += piece.vx;
+    piece.y += piece.vy;
+    piece.vy += .13;
+    piece.vx *= .99;
+    piece.life--;
+    confettiCtx.globalAlpha = Math.min(1, piece.life / 25);
+    confettiCtx.fillStyle = piece.color;
+    confettiCtx.fillRect(piece.x, piece.y, piece.size, piece.size * 1.5);
+  }
+  confettiCtx.globalAlpha = 1;
+  if (confetti.length === 0) {
+    cancelAnimationFrame(confettiFrame);
+    confettiFrame = 0;
+    confettiCtx.clearRect(0, 0, innerWidth, innerHeight);
+  }
 }
-drawConfetti();
 </script>
 </body>
 </html>
