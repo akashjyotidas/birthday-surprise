@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#160d20">
-<title>A Little Mystery for Majoni ❤️</title>
+<meta name="theme-color" content="#fff8f7">
+<title>For Majoni ♡</title>
 <style>
 :root {
   --bg: #100b19;
@@ -117,6 +117,52 @@ footer { margin-top: 34px; color: #92758f; font: 10px Arial,sans-serif; letter-s
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+
+/* Clean, soft birthday theme */
+:root {
+  --bg: #fff8f7;
+  --panel: #ffffff;
+  --pink: #b85d78;
+  --pink2: #d98ba0;
+  --cream: #38252d;
+  --muted: #806b72;
+}
+html { background: #fff8f7; }
+body {
+  color: var(--cream);
+  background: linear-gradient(180deg, #fff8f7 0%, #fff1f3 100%);
+}
+#stars, #confetti { opacity: 0; }
+main { padding-top: max(8vh, 42px); padding-bottom: 30px; }
+.eyebrow { color: #a66b7d; letter-spacing: 2.5px; font-size: 9px; }
+h1 { text-shadow: none; font-size: clamp(36px, 9vw, 58px); }
+h1 em { color: #bd6f86; }
+.panel {
+  border: 1px solid #efdce1; border-radius: 20px;
+  background: rgba(255,255,255,.88); box-shadow: 0 12px 35px #8d52600d;
+  backdrop-filter: none;
+}
+.symbol { filter: none; font-size: clamp(42px, 12vw, 64px); }
+.dialogue { color: #59434b; line-height: 1.75; }
+.action {
+  color: #fff; background: #b86c83; border: 1px solid #b86c83;
+  box-shadow: none; font-weight: 600;
+}
+.action:hover { transform: translateY(-1px); box-shadow: 0 6px 18px #b86c831c; }
+.action.secondary { color: #8e5266; background: #fff; border-color: #e5cbd3; }
+.progress-label { color: #9c7b86; }
+.track { background: #f0dfe4; }
+.bar { background: #bd6f86; }
+.letter { color: #59434b; border-left-color: #bd6f86; background: #fff8f9; }
+.signature { color: #a45d74; }
+.small-note, footer { display: none !important; }
+#progressPercent { display: none; }
+.heart { opacity: .45; }
+@media (max-width: 480px) {
+  main { width: min(90%, 620px); }
+  .panel { margin-top: 20px; }
+  .dialogue { font-size: 17px; }
+}
 </style>
 </head>
 <body>
@@ -124,19 +170,15 @@ footer { margin-top: 34px; color: #92758f; font: 10px Arial,sans-serif; letter-s
 <canvas id="confetti" aria-hidden="true"></canvas>
 
 <main>
-  <div class="eyebrow">A little mystery, made just for you</div>
+  <div class="eyebrow">A little something for you</div>
 
   <section id="intro" class="intro">
     <h1>For you,<br><em>Majoni.</em> ♡</h1>
-    <p class="subhead">There are ten little moments waiting here.<br>
-      Take your time. Open them one by one.</p>
     <div class="panel">
       <div class="symbol" aria-hidden="true">🎁</div>
-      <p class="dialogue">Not everything beautiful needs a photograph.
-Sometimes, a few honest words are enough.</p>
-      <button class="action" id="startBtn">Unlock the first surprise <span aria-hidden="true">♡</span></button>
+      <p class="dialogue">Just a few words, made with care for you.</p>
+      <button class="action" id="startBtn">Begin <span aria-hidden="true">♡</span></button>
     </div>
-    <p class="small-note">Best experienced slowly, one little surprise at a time.</p>
   </section>
 
   <section id="journey" class="stage hidden" aria-live="polite">
@@ -151,7 +193,6 @@ Sometimes, a few honest words are enough.</p>
       <p class="dialogue" id="stageDialogue"></p>
       <button class="action" id="nextBtn">Tell me more ✨</button>
     </div>
-    <p class="small-note" id="stageNote">One moment at a time. No rush.</p>
   </section>
 
   <section id="ending" class="stage hidden" aria-live="polite">
@@ -159,8 +200,8 @@ Sometimes, a few honest words are enough.</p>
     <h1>Happy Birthday,<br><em>Majoni.</em> ♡</h1>
     <div class="panel">
       <div class="symbol" aria-hidden="true">💌</div>
-      <p class="dialogue">You made it to the end… but this is the part I hope you remember.</p>
-      <button class="action" id="openLetterBtn">Open your letter 💗</button>
+      <p class="dialogue">One last little thing, from me to you.</p>
+      <button class="action" id="openLetterBtn">Read your letter</button>
     </div>
   </section>
 
@@ -170,7 +211,7 @@ Sometimes, a few honest words are enough.</p>
     <div class="panel">
       <div class="letter" id="letterText"></div>
       <p class="signature">With warmest wishes, always. ♡</p>
-      <button class="action" id="finalBtn">Make a birthday wish ✨</button>
+      <button class="action" id="finalBtn">Make a wish</button>
     </div>
   </section>
 
@@ -182,11 +223,10 @@ Sometimes, a few honest words are enough.</p>
       <p class="dialogue">I hope life is gentle with you, your dreams find their way to you, and you always have reasons to smile.</p>
       <p class="dialogue">And quietly, I hope I get to be one of those reasons someday. ♡</p>
       <p class="subhead">Happy Birthday. You deserve beautiful things.</p>
-      <button class="action secondary" id="replayBtn">Start the journey again ↺</button>
+      <button class="action secondary" id="replayBtn">Read it again</button>
     </div>
   </section>
 
-  <footer>MADE WITH CARE, JUST FOR MAJONI ♡</footer>
 </main>
 
 <script>
