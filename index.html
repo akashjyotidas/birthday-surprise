@@ -183,8 +183,8 @@ h1 em { color: #bd6f86; }
 
   <section id="journey" class="stage hidden" aria-live="polite">
     <div class="progress-wrap">
-      <div class="progress-label"><span id="progressText">Surprise 1 of 10</span><span id="progressPercent">10%</span></div>
-      <div class="track" role="progressbar" aria-label="Birthday surprise progress" aria-valuemin="0" aria-valuemax="10" aria-valuenow="1" id="progressTrack"><div class="bar" id="progressBar"></div></div>
+      <div class="progress-label"><span id="progressText">Surprise 1 of 8</span><span id="progressPercent">13%</span></div>
+      <div class="track" role="progressbar" aria-label="Birthday surprise progress" aria-valuemin="0" aria-valuemax="8" aria-valuenow="1" id="progressTrack"><div class="bar" id="progressBar"></div></div>
     </div>
     <div class="panel">
       <div class="eyebrow" id="stageEyebrow">A little beginning</div>
@@ -320,11 +320,16 @@ function updateProgress(index) {
 function renderSurprise(index) {
   current = index;
   const item = surprises[index];
-  $("stageEyebrow").textContent = item.eyebrow;
-  $("stageSymbol").textContent = item.symbol;
+  const symbols = ["🌙", "✨", "🌸", "💌", "🌙", "🦋", "🎂", "❤️"];
+  const eyebrows = [
+    "A little beginning", "Something special", "A sweet memory", "From the heart",
+    "A wish for you", "Always keep smiling", "A birthday wish", "One last thing"
+  ];
+  $("stageEyebrow").textContent = item.eyebrow || eyebrows[index] || "A little surprise";
+  $("stageSymbol").textContent = item.symbol || symbols[index] || "♡";
   $("stageTitle").textContent = item.title;
-  $("stageDialogue").textContent = item.dialogue;
-  $("nextBtn").textContent = item.button;
+  $("stageDialogue").textContent = item.dialogue || item.message || "";
+  $("nextBtn").textContent = item.button || (index === surprises.length - 1 ? "Finish the surprises ♡" : "Tell me more ✨");
   updateProgress(index);
   showSection("journey");
 }
@@ -356,7 +361,7 @@ $("startBtn").addEventListener("click", () => {
 $("nextBtn").addEventListener("click", () => {
   if (current < surprises.length - 1) {
     renderSurprise(current + 1);
-    makeHearts(current === 8 ? 35 : 12);
+    makeHearts(current === surprises.length - 1 ? 35 : 12);
   } else {
     showSection("ending");
     makeHearts(28);
